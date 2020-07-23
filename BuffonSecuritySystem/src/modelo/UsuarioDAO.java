@@ -14,6 +14,8 @@ import java.sql.ResultSet;
  */
 public class UsuarioDAO implements ConsultasDAO{
 
+    
+    
     @Override
     public boolean validarExiste(UsuarioVO u) {
         BaseDeDatos c = new BaseDeDatos();
@@ -67,5 +69,75 @@ public class UsuarioDAO implements ConsultasDAO{
         return activo;
     }
     
+    public void insertarUsuario(UsuarioVO u){
+        BaseDeDatos c = new BaseDeDatos();
+        
+        try {
+            c.conectar();
+            c.consulta_multi("INSERT INTO tblempleado (nombre, apellido,usuario, contrasena, usuario_activo,"
+                    + "fk_acceso) VALUES ('"+u.getNombre()+"','"+u.getApellido()+"','"
+                            + u.getUsuario()+"','"+u.getPassw()+"',"+u.getEstado()+","
+                                    +u.getAcceso()+ ");");
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+        }
+        
+        c.desconectar(); 
+    }
+
+    @Override
+    public String obtenerNombre(UsuarioVO u) {
+        BaseDeDatos c = new BaseDeDatos();
+        String nombre= "";
+        String apellido = "";
+        String usuario = "";
+        String passw = "";
+        int acceso =0;
+        int activo = 0;
+        
+        try {
+            c.conectar();
+            
+            ResultSet rs = c.consulta_obtener("SELECT nombre, apellido"
+                    + ", usuario, contrasena, usuario_activo, fk_acceso from tblempleado where id_tblempleado="+u.getId());
+            
+            while(rs.next()){
+                u.setNombre(rs.getString(1));
+                u.setApellido(rs.getString(2));
+                u.setUsuario(rs.getString(3));
+                u.setPassw(rs.getString(4));
+                u.setEstado(rs.getInt(5));
+                u.setAcceso(rs.getInt(6));
+            }
+            
+            
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+        }
+        
+        return nombre;
+    }
+
+    @Override
+    public void Eliminar(UsuarioVO v) {
+       BaseDeDatos c = new BaseDeDatos();
+       
+        try {
+            c.conectar();
+            
+            c.consulta_multi("DELETE FROM tblempleado where id_tblempleado="+v.getId());
+            
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+        }
+        c.desconectar();
+    }
+
+    @Override
+    public void modificar() {
+        
+    }
+
     
+
 }

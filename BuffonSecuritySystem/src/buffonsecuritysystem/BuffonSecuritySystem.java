@@ -5,12 +5,14 @@
  */
 package buffonsecuritysystem;
 
+import control.ControladorAdmin;
 import control.ControladorLogin;
 import control.controlPrincipal;
 import modelo.UsuarioDAO;
 import modelo.UsuarioVO;
 import modelo.VisitaDAO;
 import modelo.VisitaVO;
+import vista.MenuAdmin;
 import vista.menuLogin;
 import vista.menuPrincipal;
 
@@ -32,10 +34,13 @@ public class BuffonSecuritySystem {
         menuPrincipal mp = new menuPrincipal();
         VisitaDAO vd = new VisitaDAO();
         VisitaVO vv = new VisitaVO();
+        MenuAdmin ma = new MenuAdmin();
+        
         
         ControladorLogin clgn = new ControladorLogin(lg,uvo,ud);
         controlPrincipal cpl = new controlPrincipal(mp,vd,vv);
-        mp.setVisible(true);
+        ControladorAdmin ca = new ControladorAdmin(ud, ma, uvo);
+        ma.setVisible(true);
     }
     
 }

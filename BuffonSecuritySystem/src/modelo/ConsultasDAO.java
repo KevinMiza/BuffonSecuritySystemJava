@@ -13,4 +13,15 @@ public interface ConsultasDAO {
     
     public boolean validarExiste(UsuarioVO u);
     public int validarEstado(UsuarioVO u);
+    public void insertarUsuario(UsuarioVO u);
+    
+    public String obtenerNombre(UsuarioVO u);
+  //  public String obtenerApellido(UsuarioVO u);
+   // public String obtenerID(UsuarioVO u);
+    //public String obtenerPassword(UsuarioVO u);
+    //public String obtenerUsuario(UsuarioVO u);
+    
+    public void Eliminar(UsuarioVO v);
+    public void modificar();
+    
 }

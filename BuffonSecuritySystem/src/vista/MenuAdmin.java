@@ -29,8 +29,8 @@ public class MenuAdmin extends javax.swing.JFrame {
 
         jtxtNombre = new javax.swing.JTextField();
         jtxtApellido = new javax.swing.JTextField();
-        jtxtApellido1 = new javax.swing.JTextField();
-        jtxtApellido2 = new javax.swing.JTextField();
+        jtxtPassw = new javax.swing.JTextField();
+        jtxtUsuario = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -40,10 +40,12 @@ public class MenuAdmin extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jcmboAcceso = new javax.swing.JComboBox<>();
         jLabel7 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
+        jbtnBorrar = new javax.swing.JButton();
+        jbtnGuardar = new javax.swing.JButton();
+        jtxtID = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
+        jbtnEditar = new javax.swing.JButton();
+        jbtnBuscar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(51, 255, 255));
@@ -60,15 +62,15 @@ public class MenuAdmin extends javax.swing.JFrame {
             }
         });
 
-        jtxtApellido1.addActionListener(new java.awt.event.ActionListener() {
+        jtxtPassw.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtxtApellido1ActionPerformed(evt);
+                jtxtPasswActionPerformed(evt);
             }
         });
 
-        jtxtApellido2.addActionListener(new java.awt.event.ActionListener() {
+        jtxtUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtxtApellido2ActionPerformed(evt);
+                jtxtUsuarioActionPerformed(evt);
             }
         });
 
@@ -89,7 +91,7 @@ public class MenuAdmin extends javax.swing.JFrame {
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("Bienvenido Adminsitrador");
 
-        jcmboEstadoUsuario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Activo", "Inactivo" }));
+        jcmboEstadoUsuario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Inactivo", "Activo" }));
         jcmboEstadoUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jcmboEstadoUsuarioActionPerformed(evt);
@@ -98,7 +100,7 @@ public class MenuAdmin extends javax.swing.JFrame {
 
         jLabel6.setText("Activo/Inactivo");
 
-        jcmboAcceso.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrador", "Guardia", "Residente" }));
+        jcmboAcceso.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrador", "Guardia" }));
         jcmboAcceso.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jcmboAccesoActionPerformed(evt);
@@ -107,28 +109,37 @@ public class MenuAdmin extends javax.swing.JFrame {
 
         jLabel7.setText("Nivel de Acceso");
 
-        jButton1.setText("Borrar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jbtnBorrar.setText("Borrar");
+        jbtnBorrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jbtnBorrarActionPerformed(evt);
             }
         });
 
-        jButton3.setText("Guardar");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        jbtnGuardar.setText("Crear");
+        jbtnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                jbtnGuardarActionPerformed(evt);
             }
         });
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        jtxtID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                jtxtIDActionPerformed(evt);
             }
         });
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel8.setText("ID");
+
+        jbtnEditar.setText("Guardar");
+
+        jbtnBuscar.setText("Buscar por ID");
+        jbtnBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtnBuscarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -143,9 +154,11 @@ public class MenuAdmin extends javax.swing.JFrame {
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton3)
-                                .addGap(177, 177, 177)
-                                .addComponent(jButton1))
+                                .addComponent(jbtnGuardar)
+                                .addGap(52, 52, 52)
+                                .addComponent(jbtnEditar)
+                                .addGap(52, 52, 52)
+                                .addComponent(jbtnBorrar))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(layout.createSequentialGroup()
@@ -162,7 +175,10 @@ public class MenuAdmin extends javax.swing.JFrame {
                                         .addComponent(jtxtNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
                                         .addComponent(jtxtApellido))
                                     .addComponent(jcmboEstadoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jtxtID, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(32, 32, 32)
+                                        .addComponent(jbtnBuscar)))
                                 .addGap(106, 106, 106)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel7)
@@ -172,29 +188,30 @@ public class MenuAdmin extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jcmboAcceso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jtxtApellido2, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
-                                .addComponent(jtxtApellido1)))))
-                .addContainerGap(37, Short.MAX_VALUE))
+                                .addComponent(jtxtUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
+                                .addComponent(jtxtPassw)))))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(32, 32, 32)
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
+                .addGap(9, 9, 9)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8))
+                    .addComponent(jtxtID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8)
+                    .addComponent(jbtnBuscar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jtxtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jtxtApellido2, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtxtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2)
                     .addComponent(jLabel4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jtxtApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jtxtApellido1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtxtPassw, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1)
                     .addComponent(jLabel3))
                 .addGap(46, 46, 46)
@@ -205,9 +222,10 @@ public class MenuAdmin extends javax.swing.JFrame {
                     .addComponent(jLabel7))
                 .addGap(59, 59, 59)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton3))
-                .addContainerGap(71, Short.MAX_VALUE))
+                    .addComponent(jbtnBorrar)
+                    .addComponent(jbtnGuardar)
+                    .addComponent(jbtnEditar))
+                .addContainerGap(69, Short.MAX_VALUE))
         );
 
         pack();
@@ -221,13 +239,13 @@ public class MenuAdmin extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jtxtApellidoActionPerformed
 
-    private void jtxtApellido1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxtApellido1ActionPerformed
+    private void jtxtPasswActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxtPasswActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jtxtApellido1ActionPerformed
+    }//GEN-LAST:event_jtxtPasswActionPerformed
 
-    private void jtxtApellido2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxtApellido2ActionPerformed
+    private void jtxtUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxtUsuarioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jtxtApellido2ActionPerformed
+    }//GEN-LAST:event_jtxtUsuarioActionPerformed
 
     private void jcmboEstadoUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcmboEstadoUsuarioActionPerformed
         // TODO add your handling code here:
@@ -237,17 +255,21 @@ public class MenuAdmin extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jcmboAccesoActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jbtnBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnBorrarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jbtnBorrarActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void jbtnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnGuardarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_jbtnGuardarActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void jtxtIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxtIDActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_jtxtIDActionPerformed
+
+    private void jbtnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnBuscarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbtnBuscarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -285,8 +307,6 @@ public class MenuAdmin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -295,12 +315,16 @@ public class MenuAdmin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    public javax.swing.JTextField jTextField1;
+    public javax.swing.JButton jbtnBorrar;
+    public javax.swing.JButton jbtnBuscar;
+    public javax.swing.JButton jbtnEditar;
+    public javax.swing.JButton jbtnGuardar;
     public javax.swing.JComboBox<String> jcmboAcceso;
     public javax.swing.JComboBox<String> jcmboEstadoUsuario;
     public javax.swing.JTextField jtxtApellido;
-    public javax.swing.JTextField jtxtApellido1;
-    public javax.swing.JTextField jtxtApellido2;
+    public javax.swing.JTextField jtxtID;
     public javax.swing.JTextField jtxtNombre;
+    public javax.swing.JTextField jtxtPassw;
+    public javax.swing.JTextField jtxtUsuario;
     // End of variables declaration//GEN-END:variables
 }
