@@ -12,9 +12,9 @@ package modelo;
 public interface ConsultasDAO {
     
     public boolean validarExiste(UsuarioVO u);
+    public int validarAcceso(UsuarioVO u);
     public int validarEstado(UsuarioVO u);
     public void insertarUsuario(UsuarioVO u);
-    
     public String obtenerNombre(UsuarioVO u);
   //  public String obtenerApellido(UsuarioVO u);
    // public String obtenerID(UsuarioVO u);
@@ -22,6 +22,6 @@ public interface ConsultasDAO {
     //public String obtenerUsuario(UsuarioVO u);
     
     public void Eliminar(UsuarioVO v);
-    public void modificar();
+    public void modificar(UsuarioVO v);
     
 }

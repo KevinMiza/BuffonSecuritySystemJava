@@ -7,6 +7,8 @@ package control;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import modelo.UsuarioDAO;
+import modelo.UsuarioVO;
 import modelo.VisitaDAO;
 import modelo.VisitaVO;
 import vista.menuPrincipal;
@@ -22,9 +24,13 @@ public class controlPrincipal implements ActionListener{
     menuPrincipal mp = new menuPrincipal();
     VisitaDAO vd = new VisitaDAO();
     VisitaVO vv = new VisitaVO();
+    UsuarioVO uv = new UsuarioVO();
+    UsuarioDAO ud = new UsuarioDAO();
    
-    public controlPrincipal(menuPrincipal mp, VisitaDAO vd, VisitaVO vv) {
+    public controlPrincipal(menuPrincipal mp, VisitaDAO vd, VisitaVO vv, UsuarioVO uv, UsuarioDAO ud) {
         this.mp=mp;
+        this.ud=ud;
+        this.uv=uv;
         this.vd=vd;
         this.vv=vv;
         this.mp.jbtnIngresarDatos.addActionListener(this);
@@ -44,6 +50,7 @@ public class controlPrincipal implements ActionListener{
         System.out.println(DPI);
         System.out.println(apellido);
         
+        vd.validarVisita(vv, uv);
         }
 
     @Override

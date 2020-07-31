@@ -15,6 +15,15 @@ public class VisitaVO {
     private String apellido;
     private String token;
     private long DPI; 
+    private int entradasalida;
+
+    public int getEntradasalida() {
+        return entradasalida;
+    }
+
+    public void setEntradasalida(int entradasalida) {
+        this.entradasalida = entradasalida;
+    }
     public String getToken() {
         return token;
     }

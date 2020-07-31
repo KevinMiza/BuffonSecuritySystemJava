@@ -18,6 +18,15 @@ public class UsuarioVO {
     private String usuario;
     private String passw;
     private int acceso;
+    private int fk_usuario;
+
+    public int getFk_usuario() {
+        return fk_usuario;
+    }
+
+    public void setFk_usuario(int fk_usuario) {
+        this.fk_usuario = fk_usuario;
+    }
 
     
     public int getId() {

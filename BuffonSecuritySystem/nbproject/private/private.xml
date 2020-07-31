@@ -2,14 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/Users/kamiz/OneDrive/Documents/NetBeansProjects/BuffonSecuritySystem/src/modelo/ConsultasUsuarioDAO.java</file>
-            <file>file:/C:/Users/kamiz/OneDrive/Documents/NetBeansProjects/BuffonSecuritySystem/src/modelo/VisitaVO.java</file>
-            <file>file:/C:/Users/kamiz/OneDrive/Documents/NetBeansProjects/BuffonSecuritySystem/src/control/ControladorLogin.java</file>
-            <file>file:/C:/Users/kamiz/OneDrive/Documents/NetBeansProjects/BuffonSecuritySystem/src/control/BaseDeDatos.java</file>
-            <file>file:/C:/Users/kamiz/OneDrive/Documents/NetBeansProjects/BuffonSecuritySystem/src/control/controlPrincipal.java</file>
-            <file>file:/C:/Users/kamiz/OneDrive/Documents/NetBeansProjects/BuffonSecuritySystem/src/modelo/VisitaDAO.java</file>
-            <file>file:/C:/Users/kamiz/OneDrive/Documents/NetBeansProjects/BuffonSecuritySystem/src/buffonsecuritysystem/BuffonSecuritySystem.java</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

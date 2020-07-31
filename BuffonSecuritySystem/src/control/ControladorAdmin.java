@@ -63,6 +63,24 @@ public class ControladorAdmin implements ActionListener{
         ma.jcmboEstadoUsuario.setSelectedIndex(estado);
     }
     
+    private void actualizarUsuario(){
+        uv.setId(Integer.parseInt(ma.jtxtID.getText()));
+        uv.setNombre(ma.jtxtNombre.getText());
+        uv.setApellido(ma.jtxtApellido.getText());
+        uv.setUsuario(ma.jtxtUsuario.getText());
+        uv.setPassw(ma.jtxtPassw.getText());
+        uv.setAcceso(ma.jcmboAcceso.getSelectedIndex()+1);
+        uv.setEstado(ma.jcmboEstadoUsuario.getSelectedIndex());
+        ud.modificar(uv);
+        
+        System.out.println(uv.getId());
+        System.out.println(uv.getNombre());
+        System.out.println(uv.getApellido());
+        System.out.println(uv.getUsuario());
+        System.out.println(uv.getPassw());
+        System.out.println(uv.getEstado());
+        System.out.println(uv.getAcceso());
+    }
     
     private void eliminarPorID(){
         uv.setId(Integer.parseInt(ma.jtxtID.getText()));
@@ -76,6 +94,8 @@ public class ControladorAdmin implements ActionListener{
             cargarUsuario();
         }if(e.getSource()== ma.jbtnBorrar){
             this.eliminarPorID();
+        }if(e.getSource()== ma.jbtnEditar){
+            this.actualizarUsuario();
         }
     }
     

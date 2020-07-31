@@ -69,7 +69,7 @@ public class menuPrincipal extends javax.swing.JFrame {
 
         jLabel4.setText("Nombre y apellido");
 
-        jcmbUserPass.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Residente", "Visitante" }));
+        jcmbUserPass.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Entrada", "Salida" }));
 
         jbtnIngresarDatos.setText("Ingresar datos");
         jbtnIngresarDatos.addActionListener(new java.awt.event.ActionListener() {

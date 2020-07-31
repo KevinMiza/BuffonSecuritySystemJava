@@ -37,10 +37,10 @@ public class BuffonSecuritySystem {
         MenuAdmin ma = new MenuAdmin();
         
         
-        ControladorLogin clgn = new ControladorLogin(lg,uvo,ud);
-        controlPrincipal cpl = new controlPrincipal(mp,vd,vv);
+        ControladorLogin clgn = new ControladorLogin(lg,uvo,ud, ma, mp);
+        controlPrincipal cpl = new controlPrincipal(mp,vd,vv, uvo,ud);
         ControladorAdmin ca = new ControladorAdmin(ud, ma, uvo);
-        ma.setVisible(true);
+        lg.setVisible(true);
     }
     
 }

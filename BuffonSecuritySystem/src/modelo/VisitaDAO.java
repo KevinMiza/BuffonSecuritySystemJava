@@ -7,6 +7,7 @@ package modelo;
 
 import control.BaseDeDatos;
 import java.sql.ResultSet;
+import java.util.Calendar;
 
 /**
  *
@@ -72,6 +73,26 @@ public class VisitaDAO implements ConsultasUsuarioDAO{
         
         return dpi;
     }
+
+    @Override
+    public void validarVisita(VisitaVO v, UsuarioVO u) {
+       BaseDeDatos c = new BaseDeDatos();
+
+       
+       Calendar calendar = Calendar.getInstance();
+       int hora = calendar.get(Calendar.HOUR_OF_DAY);
+        try {
+            c.conectar();
+            
+            c.consulta_multi("INSERT INTO tblregistro(fk_idtoken, fk_idusuario,fk_idempleado, fk_idtblcheck, hora) VALUES ('"+v.getToken()+","+u.getFk_usuario()+", "+u.getId()+""+v.getEntradasalida()+","+hora+");");
+            
+            
+            
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+        }
+    }
+
     
     
 }

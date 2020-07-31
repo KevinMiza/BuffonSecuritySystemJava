@@ -12,4 +12,5 @@ package modelo;
 public interface ConsultasUsuarioDAO {
     public String getName(VisitaVO v);
     public long getDPI(VisitaVO v);
+    public void validarVisita(VisitaVO v, UsuarioVO u);
 }

@@ -134,9 +134,51 @@ public class UsuarioDAO implements ConsultasDAO{
     }
 
     @Override
-    public void modificar() {
+    public void modificar(UsuarioVO v) {
+        BaseDeDatos c = new BaseDeDatos();
         
+        try {
+            c.conectar();
+            
+            c.consulta_multi("UPDATE tblempleado SET nombre='"+v.getNombre()+"', apellido='"+v.getApellido()+"', usuario='"+v.getUsuario()+"', contrasena='"+v.getPassw()+"', usuario_activo="+v.getEstado()+
+            ",fk_acceso="+v.getAcceso()+" WHERE id_tblempleado="+v.getId());
+            
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+        }
+        c.desconectar();
     }
+
+    @Override
+    public int validarAcceso(UsuarioVO u) {
+                int estado = 2;
+        
+        BaseDeDatos c = new BaseDeDatos();
+        
+        UsuarioVO eVO = new UsuarioVO();
+        try{
+            c.conectar();
+            
+            ResultSet rs = c.consulta_obtener("SELECT fk_acceso FROM tblempleado "
+                            + "WHERE usuario='"+u.getUsuario()+"' "
+                            + "and contrasena='"+u.getPassw()+"';");
+            
+            while(rs.next()){
+                eVO.setAcceso(rs.getInt(1));
+            }
+            estado = eVO.getAcceso();
+            if(estado ==1){
+                return estado;
+            }else{
+                
+            }
+            
+        }catch(Exception e){
+            System.err.println(e.getMessage());
+        }
+        return estado;
+    }
+
 
     
 
